@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <input type="number" name="dollar" placeholder="USD Dollar" />
+      <div class="result">{0} USD Dollar = {0} Egyptian Pound</div>
+    </form>
+    <script>
+      let el = document.querySelector("[type=number]");
+      let result = document.getElementsByClassName("result")[0];
+      console.log(el.value, result);
+      el.onkeyup = function () {
+        if (el.value !== "") {
+          result.textContent = `{${el.value}} USD Dollar = {${(
+            el.value * 19.36
+          ).toFixed(2)}} Egyptian Pound`;
+        } else result.textContent = "{0} USD Dollar = {0} Egyptian Pound";
+      };
+      el.onchange = function () {
+        if (el.value !== "") {
+          result.textContent = `{${el.value}} USD Dollar = {${(
+            el.value * 19.36
+          ).toFixed(2)}} Egyptian Pound`;
+        } else result.textContent = "{0} USD Dollar = {0} Egyptian Pound";
+      };
+    </script>
+  </body>
+</html>
